@@ -22,14 +22,6 @@ class ModelCars{
         return $carsBrand;
     }
 
-    //I only bring the brand of the car to put it as a title 
-    function getOnlyBrand($brand){
-        $query = $this->db->prepare('SELECT Brand FROM cars WHERE Brand =? LIMIT 1');
-        $query->execute(array($brand));
-        $brand = $query->fetchAll(PDO::FETCH_OBJ);
-        return $brand;
-    }
-
     function descriptionByCarDB($carDescription){
         $query = $this->db->prepare(
             'SELECT c.Car, c.Brand, c.Year, c.Description, c.Sold, p.Euro, p.Dollar, p.Peso, p.Yen
@@ -44,17 +36,24 @@ class ModelCars{
     }
 
     function deleteCarDB($brand, $delete){
-        $sentencia = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
-        $sentencia->execute(array($brand, $delete));
+        $query = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
+        $query->execute(array($brand, $delete));
     }
 
     function soldCarDB($brand, $sold){
-        $sentencia = $this->db->prepare("UPDATE cars SET Sold=1 WHERE Brand=? AND ID_car=?");
-        $sentencia->execute(array($brand, $sold));
+        $query = $this->db->prepare("UPDATE cars SET Sold=1 WHERE Brand=? AND ID_car=?");
+        $query->execute(array($brand, $sold));
     }
     function onSaleCarDB($brand, $sold){
-        $sentencia = $this->db->prepare("UPDATE cars SET Sold=0 WHERE Brand=? AND ID_car=?");
-        $sentencia->execute(array($brand, $sold));
+        $query = $this->db->prepare("UPDATE cars SET Sold=0 WHERE Brand=? AND ID_car=?");
+        $query->execute(array($brand, $sold));
+    }
+
+    function createCarDB($Car, $Brand, $Year, $Description, $sold, $euro, $dollar, $peso, $yen){
+        $queryPrice = $this->db->prepare('INSERT INTO `Price`(`Car`, `Euro`, `Dollar`, `Peso`, `Yen`) VALUES (?, ?, ?, ?, ?)');
+        $queryCar = $this->db->prepare('INSERT INTO `cars`(`Car`, `Brand`, `Year`, `Description`, `Sold`) VALUES (?, ? ,? ,?, ?)');      
+        $queryPrice->execute(array($Car, $euro, $dollar, $peso, $yen));
+        $queryCar->execute(array($Car, $Brand, $Year, $Description, $sold));
     }
 
 }

@@ -8,8 +8,8 @@
     {foreach from=$carsBrand item=$cars}
         <li>
             <a href="description/{$cars->ID_car}">{$cars->Car}</a> | {$cars->Year} | {$cars->Description|truncate:50}
-            <a href="deleteCar/{$cars->ID_car}">Delete</a>
-            <a href="soldCar/{$cars->ID_car}">Sold</a>
+            <a href="deleteCar/{$cars->Brand}/{$cars->ID_car}">Delete</a>
+            <a href="soldCar/{$cars->Brand}/{$cars->ID_car}">Sold</a>
         </li>
     {/foreach}
 </ul>

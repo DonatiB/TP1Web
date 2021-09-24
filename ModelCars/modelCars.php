@@ -22,7 +22,7 @@ class ModelCars{
         return $carsBrand;
     }
 
-    //I only bring the brand of the car to put it as a title
+    //I only bring the brand of the car to put it as a title 
     function getOnlyBrand($brand){
         $query = $this->db->prepare('SELECT Brand FROM cars WHERE Brand =? LIMIT 1');
         $query->execute(array($brand));
@@ -41,11 +41,16 @@ class ModelCars{
         $query->execute(array($carDescription));
         $carDescription = $query->fetchAll(PDO::FETCH_OBJ);
         return $carDescription;
-
     }
 
-    // function deleteCarDB($delete){
-    //     $query = $this->db->prepare('SELECT FROM cars WHERE Brand =? LIMIT 1');
-    // }
+    function deleteCarDB($brand, $delete){
+        $sentencia = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
+        $sentencia->execute(array($brand, $delete));
+    }
+
+    function soldCarDB($brand, $delete){
+        $sentencia = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
+        $sentencia->execute(array($brand, $delete));
+    }
 
 }

@@ -14,14 +14,16 @@
         {else}
             Sold
         {/if}     
-    </h4>       
+    </h4>      
+    <select name="select" value="">
+        <option value="value1">€{$car->Euro}</option>
+        <option value="value2">${$car->Dollar}</option>
+        <option value="value3">${$car->Peso}</option>
+        <option value="value4">¥{$car->Yen}</option>
+    </select>
+
 {/foreach}
 
 
 {include file="templates/footer.tpl"}
 
-{* {if !$car->Sold}
-            'On sale'
-        {else}
-            'Sold'
-        {/if}  *}

@@ -23,12 +23,12 @@ switch($paramsURL[0]){
     case 'description':
         $controllerCars->descriptionByCar($paramsURL[1]);       
     break;
-    // case 'deleteCar':
-    //     $controllerCars->deleteCar($paramsURL[1]);       
-    // break;
-    // case 'soldCar':
-    //     $controllerCars->soldCar($paramsURL[1]);       
-    // break;
+    case 'deleteCar':
+        $controllerCars->deleteCar($paramsURL[1], $paramsURL[2]);       
+    break;
+    case 'soldCar':
+        $controllerCars->soldCar($paramsURL[1], $paramsURL[2]);       
+    break;
     default:
        echo "No funca bro";
     break;

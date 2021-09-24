@@ -8,7 +8,9 @@ class ViewCars{
     {
         $this->smarty = new Smarty();
     }
-
+    function viewHomeLocation($brand){
+        header("Location: ".BASE_URL."brand/$brand");
+    }
     function viewHome($allCars){
         $this->smarty->assign('allCars', $allCars);
         $this->smarty->display('templates/home.tpl');

@@ -30,4 +30,22 @@ class ModelCars{
         return $brand;
     }
 
+    function descriptionByCarDB($carDescription){
+        $query = $this->db->prepare(
+            'SELECT c.Car, c.Brand, c.Year, c.Description, c.Sold, p.Euro, p.Dollar, p.Peso, p.Yen
+            FROM `cars` c
+            INNER JOIN `Price` p
+            ON c.Car = p.Car 
+            WHERE c.ID_car = ?'
+        );
+        $query->execute(array($carDescription));
+        $carDescription = $query->fetchAll(PDO::FETCH_OBJ);
+        return $carDescription;
+
+    }
+
+    // function deleteCarDB($delete){
+    //     $query = $this->db->prepare('SELECT FROM cars WHERE Brand =? LIMIT 1');
+    // }
+
 }

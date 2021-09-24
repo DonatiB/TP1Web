@@ -18,4 +18,8 @@ class ViewCars{
         $this->smarty->assign('title', $brandTitle);
         $this->smarty->display('templates/carsBrand.tpl');
     }
+    function viewDescription($carDescription){
+        $this->smarty->assign('carDescription', $carDescription);
+        $this->smarty->display('templates/carDescription.tpl');
+    }
 }

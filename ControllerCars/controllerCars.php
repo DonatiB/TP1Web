@@ -21,4 +21,16 @@ class ControllerCars{
         $brandTitle = $this->model->getOnlyBrand($brand);
         $this->view->carsByBrand($carsBrand, $brandTitle);
     }
+    function descriptionByCar($carDescription){
+        $carDescription = $this->model->descriptionByCarDB($carDescription);
+        $this->view->viewDescription($carDescription);
+    }
+
+//     function deleteCar($delete){
+//         $delete = $this->model->deleteCarDB($delete);
+//         // $this->view->viewDelete();
+//     }
+//     function soldCar($sold){
+        
+//     }
 }

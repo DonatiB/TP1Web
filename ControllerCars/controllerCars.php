@@ -16,4 +16,9 @@ class ControllerCars{
         $allCars = $this->model->getCars();
         $this->view->viewHome($allCars);
     }
+    function byBrand($brand){
+        $carsBrand = $this->model->getCarsBrand($brand);
+        $brandTitle = $this->model->getOnlyBrand($brand);
+        $this->view->carsByBrand($carsBrand, $brandTitle);
+    }
 }

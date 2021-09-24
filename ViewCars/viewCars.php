@@ -13,4 +13,9 @@ class ViewCars{
         $this->smarty->assign('allCars', $allCars);
         $this->smarty->display('templates/home.tpl');
     }
+    function carsByBrand($carsBrand, $brandTitle){
+        $this->smarty->assign('carsBrand', $carsBrand);
+        $this->smarty->assign('title', $brandTitle);
+        $this->smarty->display('templates/carsBrand.tpl');
+    }
 }

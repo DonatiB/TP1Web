@@ -1,14 +1,10 @@
 {include file="templates/header.tpl"}
 
+<h1>Home: Marcas</h1>
 <ul>
     {foreach from=$allCars item=$car}
-        <li>{$car->Car}</li>
-        <li>{$car->Brand}</li>
-        <li>{$car->Year}</li>
-        <li>{$car->Description}</li>
-        <br>
+        <li><a href="brand/{$car->Brand}">{$car->Brand}</a></li>       
     {/foreach}
 </ul>
-
 
 {include file="templates/footer.tpl"}

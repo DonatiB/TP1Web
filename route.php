@@ -1,8 +1,10 @@
 <?php
 require_once("ControllerCars/controllerCars.php");
 
-if(!empty($_POST['action'])){
-    $action = $_POST['action'];
+define('BASE_URL', '//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
+
+if(!empty($_GET['action'])){
+    $action = $_GET['action'];
 }else{
     $action = 'home';
 }
@@ -14,6 +16,9 @@ $controllerCars = new ControllerCars();
 switch($paramsURL[0]){
     case 'home':
         $controllerCars->home();
+    break;
+    case 'brand':
+        $controllerCars->byBrand($paramsURL[1]);       
     break;
     default:
        echo "No funca bro";

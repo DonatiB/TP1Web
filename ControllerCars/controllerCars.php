@@ -36,6 +36,7 @@ class ControllerCars{
         }
         $this->view->viewHomeLocation($brand);
     }
+
     function soldCar($brand, $sold){
         $this->model->soldCarDB($brand, $sold);
         $marca = $this->model->getOnlyBrand($brand);
@@ -43,5 +44,16 @@ class ControllerCars{
             $item->Brand = $brand;
         }
         $this->view->viewHomeLocation($brand);
+        
     }
+
+    function onSaleCar($brand, $sold){
+        $this->model->onSaleCarDB($brand, $sold);
+        $marca = $this->model->getOnlyBrand($brand);
+        foreach($marca as $item){
+            $item->Brand = $brand;
+        }
+        $this->view->viewHomeLocation($brand);
+    }
+
 }

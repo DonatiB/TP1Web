@@ -48,9 +48,13 @@ class ModelCars{
         $sentencia->execute(array($brand, $delete));
     }
 
-    function soldCarDB($brand, $delete){
-        $sentencia = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
-        $sentencia->execute(array($brand, $delete));
+    function soldCarDB($brand, $sold){
+        $sentencia = $this->db->prepare("UPDATE cars SET Sold=1 WHERE Brand=? AND ID_car=?");
+        $sentencia->execute(array($brand, $sold));
+    }
+    function onSaleCarDB($brand, $sold){
+        $sentencia = $this->db->prepare("UPDATE cars SET Sold=0 WHERE Brand=? AND ID_car=?");
+        $sentencia->execute(array($brand, $sold));
     }
 
 }

@@ -2,6 +2,7 @@
 require_once("ControllerCars/controllerCars.php");
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
+// define('BASE_URL_BRAND', '//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/b');s  
 
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -28,6 +29,9 @@ switch($paramsURL[0]){
     break;
     case 'soldCar':
         $controllerCars->soldCar($paramsURL[1], $paramsURL[2]);       
+    break;
+    case 'onSaleCar': 
+        $controllerCars->onSaleCar($paramsURL[1], $paramsURL[2]);    
     break;
     default:
        echo "No funca bro";

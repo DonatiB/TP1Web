@@ -36,6 +36,9 @@ switch($paramsURL[0]){
     case 'createCar': 
         $controllerCars->createCar();    
     break;
+    case 'saveLogo':
+        $controllerCars->saveLogo();
+    break;
     default:
        echo "Houston, tenemos un problema";
     break;

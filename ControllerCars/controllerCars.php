@@ -63,4 +63,21 @@ class ControllerCars{
         $this->view->viewHomeLocation();
     }
 
+    function saveLogo(){
+        if(isset($_FILES['photo'])){
+            //retenemos toda la informacion
+            $typeFile = $_FILES['photo']['type'];
+            $nameFile = $_FILES['photo']['name'];
+            $sizeFile = $_FILES['photo']['size'];
+            $description = $_POST['description'];
+            $brand = $_POST['brand'];
+            //extraemos los binarios de la img
+            $uploadedImg = fopen($_FILES['photo']['tmp_name'], 'r');
+            $biImg = fread($uploadedImg, $sizeFile);
+            
+            $this->model->saveLogoDB($brand, $nameFile, $biImg, $typeFile, $description);
+            $this->view->viewHomeLocation();
+        }
+    }
+
 }

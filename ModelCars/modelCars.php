@@ -10,7 +10,13 @@ class ModelCars{
 
     //test run, bring all the cars
     function getCars(){
-        $query = $this->db->prepare('SELECT Brand FROM cars GROUP BY Brand');
+        // $query = $this->db->prepare('SELECT Brand FROM cars GROUP BY Brand');
+        $query = $this->db->prepare(
+            'SELECT c.Brand, l.Image
+            FROM `cars` c
+            INNER JOIN `logo` l
+            ON c.Brand = l.Brand 
+            GROUP BY c.Brand');
         $query->execute();
         $allCars = $query->fetchAll(PDO::FETCH_OBJ);
         return $allCars;
@@ -65,4 +71,8 @@ class ModelCars{
         $queryCar->execute(array($Car, $Brand, $Year, $Description, $sold));
     }
 
+    function saveLogoDB($brand, $name, $biImg, $type, $description){
+        $query = $this->db->prepare('INSERT INTO `logo`(`Brand`, `Name`, `Image`, `Type`, `Description`) VALUE(?, ?, ?, ?, ?)');
+        $query->execute(array($brand, $name, $biImg, $type, $description));
+    }
 }

@@ -21,6 +21,13 @@ class ModelCars{
         $carsBrand = $query->fetchAll(PDO::FETCH_OBJ);
         return $carsBrand;
     }
+    
+    function getBrandTitle($brand){
+        $query = $this->db->prepare('SELECT Brand FROM cars WHERE Brand =? LIMIT 1');
+        $query->execute(array($brand));
+        $brandTitle = $query->fetchAll(PDO::FETCH_OBJ);
+        return $brandTitle;
+    }
 
     function descriptionByCarDB($carDescription){
         $query = $this->db->prepare(

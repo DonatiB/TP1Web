@@ -1,6 +1,6 @@
 {include file="templates/headerBrand.tpl"}
 
- {foreach from=$carsBrand item=$cars}
+ {foreach from=$title item=$cars}
         <h1>Marca:{$cars->Brand}</h1>
 {/foreach}
 

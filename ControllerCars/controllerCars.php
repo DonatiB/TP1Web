@@ -22,7 +22,8 @@ class ControllerCars{
 
     function byBrand($brand){
         $carsBrand = $this->model->getCarsBrand($brand);
-        $this->view->carsByBrand($carsBrand);
+        $brandTitle = $this->model->getBrandTitle($brand);
+        $this->view->carsByBrand($carsBrand, $brandTitle);
     }
 
     function descriptionByCar($carDescription){

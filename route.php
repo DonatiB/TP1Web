@@ -37,6 +37,6 @@ switch($paramsURL[0]){
         $controllerCars->createCar();    
     break;
     default:
-       echo "No funca bro";
+       echo "Error 404 Page Not Found";
     break;
 }

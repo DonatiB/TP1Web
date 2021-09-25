@@ -42,17 +42,19 @@ class ModelCars{
         return $carDescription;
     }
 
-    function deleteCarDB($brand, $delete){
-        $query = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
-        $query->execute(array($brand, $delete));
+    function deleteCarDB($brand, $car, $delete){
+        $queryCar = $this->db->prepare("DELETE FROM cars WHERE Brand=? AND ID_car=?");
+        $queryPrice = $this->db->prepare("DELETE FROM Price WHERE Car=?");
+        $queryCar->execute(array($brand, $delete));
+        $queryPrice->execute(array($car));
     }
 
     function soldCarDB($brand, $sold){
-        $query = $this->db->prepare("UPDATE cars SET Sold=1 WHERE Brand=? AND ID_car=?");
+        $query = $this->db->prepare("UPDATE cars SET Sold=0 WHERE Brand=? AND ID_car=?");
         $query->execute(array($brand, $sold));
     }
     function onSaleCarDB($brand, $sold){
-        $query = $this->db->prepare("UPDATE cars SET Sold=0 WHERE Brand=? AND ID_car=?");
+        $query = $this->db->prepare("UPDATE cars SET Sold=1 WHERE Brand=? AND ID_car=?");
         $query->execute(array($brand, $sold));
     }
 

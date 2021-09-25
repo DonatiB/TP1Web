@@ -25,7 +25,7 @@ switch($paramsURL[0]){
         $controllerCars->descriptionByCar($paramsURL[1]);       
     break;
     case 'deleteCar':
-        $controllerCars->deleteCar($paramsURL[1], $paramsURL[2]);       
+        $controllerCars->deleteCar($paramsURL[1], $paramsURL[2], $paramsURL[3]);       
     break;
     case 'soldCar':
         $controllerCars->soldCar($paramsURL[1], $paramsURL[2]);       
@@ -37,6 +37,6 @@ switch($paramsURL[0]){
         $controllerCars->createCar();    
     break;
     default:
-       echo "Error 404 Page Not Found";
+       echo "Houston, tenemos un problema";
     break;
 }

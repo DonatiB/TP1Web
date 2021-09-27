@@ -12,7 +12,7 @@ class ModelCars{
     function getCars(){
         // $query = $this->db->prepare('SELECT Brand FROM cars GROUP BY Brand');
         $query = $this->db->prepare(
-            'SELECT c.Brand, l.Image
+            'SELECT c.Brand, l.Image, l.Description
             FROM `cars` c
             INNER JOIN `logo` l
             ON c.Brand = l.Brand 

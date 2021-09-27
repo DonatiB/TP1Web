@@ -17,16 +17,13 @@ class ViewCars{
         header("Location: ".BASE_URL_BRAND."/$brand");
     }
 
-    function viewHome($allCars){     
-        $arregloImg = [];
+    function viewHome($allCars){           
         foreach($allCars as $images){
             $image = $images->Image;
             $imagendecodificada = base64_encode($image);
-            array_push($arregloImg, $imagendecodificada);
         }
-
         $this->smarty->assign('allCars', $allCars);
-        $this->smarty->assign('arregloImg', $arregloImg);
+        $this->smarty->assign('imagendecodificada', $imagendecodificada);
         $this->smarty->display('templates/home.tpl');
     }
 

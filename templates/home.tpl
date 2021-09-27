@@ -61,13 +61,13 @@
     <div class="card-brands">
         {foreach from=$allCars item=$car}                             
                 <div class="card" style="width: 18rem;">   
-                {foreach from=$arregloImg item=$images }          
-                <img src="data:image/jpg;base64,{$images->imagendecodificada}" class="card-img-top" alt="Nissan Logo"> 
-                {/foreach}                                     
+                 
+                {* <img src="data:image/jpg;base64,{$imagendecodificada}" class="card-img-top" alt="Nissan Logo">  *}
+                 <img src="data:image/jpg;base64,{$imagendecodificada}" class="card-img-top" alt="Nissan Logo">
                                
                 <div class="card-body">
                     <h5 class="card-title">{$car->Brand}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                            
+                    <p class="card-text">{$car->Description}</p>                            
                     <a href="brand/{$car->Brand}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-25 22:25:26
+/* Smarty version 3.1.39, created on 2021-09-27 13:29:40
   from 'C:\xampp\htdocs\proyectos\web2\Practico_Especial1\JaponeseCars\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_614f85b6a8bbc7_34240405',
+  'unifunc' => 'content_6151ab244b61c1_73052744',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '780ddcb44dd243dc29f97554a432fc601eff2000' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\web2\\Practico_Especial1\\JaponeseCars\\templates\\home.tpl',
-      1 => 1632601522,
+      1 => 1632742137,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_614f85b6a8bbc7_34240405 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6151ab244b61c1_73052744 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -92,22 +92,15 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['car']->value) {
 $_smarty_tpl->tpl_vars['car']->do_else = false;
 ?>                             
                 <div class="card" style="width: 18rem;">   
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['arregloImg']->value, 'images');
-$_smarty_tpl->tpl_vars['images']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['images']->value) {
-$_smarty_tpl->tpl_vars['images']->do_else = false;
-?>          
-                <img src="data:image/jpg;base64,<?php echo $_smarty_tpl->tpl_vars['images']->value->imagendecodificada;?>
-" class="card-img-top" alt="Nissan Logo"> 
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>                                     
+                 
+                                 <img src="data:image/jpg;base64,<?php echo $_smarty_tpl->tpl_vars['imagendecodificada']->value;?>
+" class="card-img-top" alt="Nissan Logo">
                                
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['car']->value->Brand;?>
 </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                            
+                    <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['car']->value->Description;?>
+</p>                            
                     <a href="brand/<?php echo $_smarty_tpl->tpl_vars['car']->value->Brand;?>
 " class="btn btn-primary">Go somewhere</a>
                 </div>

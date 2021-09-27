@@ -79,5 +79,4 @@ class ControllerCars{
             $this->view->viewHomeLocation();
         }
     }
-
 }
